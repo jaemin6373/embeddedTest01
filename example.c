@@ -5,12 +5,12 @@
 #include <stdlib.h>
 
 #define MUTEX_ENABLE   1
-pthread_t tid[2];
+pthread_t thread_ID[2];
 int jobIndex = 0; //순차적으로 증가
 
 pthread_mutex_t lock;
 
-void* doSomeThing(void *arg)
+void* do_SomeThing(void *arg)
 {
 #if MUTEX_ENABLE							//mutex을 사용했을 경우 
 	pthread_mutex_lock(&lock);	//lock으로 다른 스레드의 동시 수행 차단
@@ -42,13 +42,13 @@ int main(void)
 
    while (i<2)
    {
-      err = pthread_create(&(tid[i]), NULL, &doSomeThing, NULL);
+      err = pthread_create(&(thread_ID[i]), NULL, &do_SomeThing, NULL);
       if (err != 0)
           printf ("Thread Create Error: [%d]\n", err);
       i++;
    }
-   pthread_join (tid[0], NULL);
-   pthread_join (tid[1], NULL);
+   pthread_join (thread_ID[0], NULL);
+   pthread_join (thread_ID[1], NULL);
    return 0;
 }
 
