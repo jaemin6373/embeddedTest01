@@ -10,7 +10,7 @@ int jobIndex = 0; //순차적으로 증가
 
 pthread_mutex_t lock;
 
-void* doSomething(void *arg)
+void* do_SomeThing(void *arg)
 {
 #if MUTEX_ENABLE							//mutex을 사용했을 경우 
 	pthread_mutex_lock(&lock);	//lock으로 다른 스레드의 동시 수행 차단
