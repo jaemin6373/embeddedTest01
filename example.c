@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-#define MUTEX_ENABLE   100
+#define MUTEX_ENABLE   1000
 pthread_t tr_id[2];
 int jobIndex = 0; //순차적으로 증가
 
