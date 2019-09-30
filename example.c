@@ -9,6 +9,7 @@ pthread_t tr_id[2];
 int jobIndex = 0; //순차적으로 증가
 
 pthread_mutex_t lock;
+pthread_mutex_t twoLock;
 
 void* do_SomeThing(void *arg)
 {
